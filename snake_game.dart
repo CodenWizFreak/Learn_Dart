@@ -148,3 +148,24 @@ class _SnakeGameState extends State<SnakeGame> {
                 width: gridSize * tileSize,
                 height: gridSize * tileSize,
                 decoration: BoxDecoration(
+                  border: Border.all(),
+                ),
+                child: Stack(
+                  children: [
+                    // Draw Snake
+                    for (var part in snake)
+                      Positioned(
+                        left: part.dx * tileSize,
+                        top: part.dy * tileSize,
+                        child: Container(
+                          width: tileSize,
+                          height: tileSize,
+                          color: Colors.green,
+                        ),
+                      ),
+                    // Draw Food
+                    Positioned(
+                      left: food.dx * tileSize,
+                      top: food.dy * tileSize,
+                      child: Container(
+                        width: tileSize,
