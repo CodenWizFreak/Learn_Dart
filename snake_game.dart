@@ -191,3 +191,16 @@ class _SnakeGameState extends State<SnakeGame> {
                               child: Text('Play Again'),
                             ),
                           ],
+                          ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
