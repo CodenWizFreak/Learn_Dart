@@ -126,3 +126,31 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
           ),
         ],
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Game title or status
+          Text(
+            gameOver ? 'Game Over' : 'Minesweeper',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 20),
+
+          // Make the grid scrollable to prevent overflow
+          Expanded(
+            child: AnimatedBuilder(
+              animation: _gridAnimation,
+              builder: (context, child) {
+                return Transform.scale(
+                  scale: _gridAnimation.value,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: gridSize,
+                      childAspectRatio: 1,
+                    ),
+                    itemCount: gridSize * gridSize,
+                    itemBuilder: (context, index) {
+                      int x = index ~/ gridSize;
+                      int y = index % gridSize;
+
