@@ -59,3 +59,26 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
         minesPlaced++;
       }
     }
+
+    // Calculate adjacent mine counts
+    for (int i = 0; i < gridSize; i++) {
+      for (int j = 0; j < gridSize; j++) {
+        if (grid[i][j].isMine) continue;
+        int count = 0;
+        for (int x = -1; x <= 1; x++) {
+          for (int y = -1; y <= 1; y++) {
+            int nx = i + x;
+            int ny = j + y;
+            if (nx >= 0 && ny >= 0 && nx < gridSize && ny < gridSize && grid[nx][ny].isMine) {
+              count++;
+            }
+          }
+        }
+        grid[i][j].adjacentMines = count;
+      }
+    }
+
+    setState(() {
+      gameOver = false;
+    });
+  }
