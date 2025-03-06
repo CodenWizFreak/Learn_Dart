@@ -63,3 +63,24 @@ class _SnakeGameState extends State<SnakeGame> {
       case 'DOWN':
         newHead = Offset(newHead.dx, newHead.dy + 1);
         break;
+      case 'LEFT':
+        newHead = Offset(newHead.dx - 1, newHead.dy);
+        break;
+      case 'RIGHT':
+        newHead = Offset(newHead.dx + 1, newHead.dy);
+        break;
+    }
+
+    // Wrap around the screen
+    if (newHead.dx < 0) newHead = Offset(gridSize - 1, newHead.dy); // Wrap left to right
+    if (newHead.dx >= gridSize) newHead = Offset(0, newHead.dy); // Wrap right to left
+    if (newHead.dy < 0) newHead = Offset(newHead.dx, gridSize - 1); // Wrap top to bottom
+    if (newHead.dy >= gridSize) newHead = Offset(newHead.dx, 0); // Wrap bottom to top
+
+    // Check if snake eats the food
+    if (newHead == food) {
+      setState(() {
+        score += 10; // Increase score by 10
+      });
+      snake.insert(0, newHead);
+      generateFood();
