@@ -84,3 +84,24 @@ class _SnakeGameState extends State<SnakeGame> {
       });
       snake.insert(0, newHead);
       generateFood();
+      } else {
+      snake.insert(0, newHead);
+      snake.removeLast();
+    }
+  }
+
+  void generateFood() {
+    Random rand = Random();
+    food = Offset(rand.nextInt(gridSize).toDouble(), rand.nextInt(gridSize).toDouble());
+  }
+
+  void checkCollision() {
+    // Collision with itself
+    for (int i = 1; i < snake.length; i++) {
+      if (snake.first == snake[i]) {
+        setState(() {
+          gameOver = true;
+        });
+      }
+    }
+  }
