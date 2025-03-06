@@ -18,3 +18,24 @@ class SnakeGameApp extends StatelessWidget {
 
 class SnakeGame extends StatefulWidget {
   @override
+    _SnakeGameState createState() => _SnakeGameState();
+}
+
+class _SnakeGameState extends State<SnakeGame> {
+  static const int gridSize = 20;
+  static const double tileSize = 15.0;
+
+  List<Offset> snake = [Offset(5, 5)];
+  Offset food = Offset(10, 10);
+  String direction = 'RIGHT';
+  bool gameOver = false;
+  int score = 0;
+  late Timer timer;
+
+  @override
+  void initState() {
+    super.initState();
+    startGame();
+  }
+
+  void startGame() {
