@@ -105,3 +105,25 @@ class _SnakeGameState extends State<SnakeGame> {
       }
     }
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Snake Game'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Display score
+            Text(
+              'Score: $score',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onVerticalDragUpdate: (details) {
+                if (details.primaryDelta! < 0 && direction != 'DOWN') {
+                  setState(() {
+                    direction = 'UP';
+                  });
