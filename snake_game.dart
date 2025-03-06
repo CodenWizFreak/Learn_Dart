@@ -39,3 +39,27 @@ class _SnakeGameState extends State<SnakeGame> {
   }
 
   void startGame() {
+    score = 0;
+    gameOver = false;
+    snake = [Offset(5, 5)];
+    direction = 'RIGHT';
+    timer = Timer.periodic(Duration(milliseconds: 200), (timer) {
+      if (gameOver) {
+        timer.cancel();
+      } else {
+        moveSnake();
+        checkCollision();
+        setState(() {});
+      }
+    });
+  }
+
+  void moveSnake() {
+    Offset newHead = snake.first;
+    switch (direction) {
+      case 'UP':
+        newHead = Offset(newHead.dx, newHead.dy - 1);
+        break;
+      case 'DOWN':
+        newHead = Offset(newHead.dx, newHead.dy + 1);
+        break;
