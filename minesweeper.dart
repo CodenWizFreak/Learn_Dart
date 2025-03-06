@@ -44,3 +44,18 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
   }
+  void resetGame() {
+    grid = List.generate(gridSize, (i) => List.generate(gridSize, (j) => Cell(i, j)));
+    revealed = List.generate(gridSize, (i) => List.generate(gridSize, (j) => false));
+
+    // Place mines
+    Random random = Random();
+    int minesPlaced = 0;
+    while (minesPlaced < totalMines) {
+      int x = random.nextInt(gridSize);
+      int y = random.nextInt(gridSize);
+      if (!grid[x][y].isMine) {
+        grid[x][y].isMine = true;
+        minesPlaced++;
+      }
+    }
