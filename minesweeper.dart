@@ -185,5 +185,12 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
     );
   }
 }
+class Cell {
+  final int x, y;
+  bool isMine = false;
+  int adjacentMines = 0;
+
+  Cell(this.x, this.y);
+}
 
 
