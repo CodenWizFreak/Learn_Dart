@@ -153,4 +153,22 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
                     itemBuilder: (context, index) {
                       int x = index ~/ gridSize;
                       int y = index % gridSize;
+                      return GestureDetector(
+                        onTap: () => revealCell(x, y),
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          margin: EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: revealed[x][y] ? Colors.grey[300] : Colors.blue,
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(color: Colors.black),
+                          ),
+                          child: Center(
+                            child: revealed[x][y]
+                                ? (grid[x][y].isMine
+                                    ? Icon(Icons.dangerous, color: Colors.red)
+                                    : grid[x][y].adjacentMines > 0
+                                        ? Text(grid[x][y].adjacentMines.toString())
+                                        : Container())
+                                : Container(),
 
