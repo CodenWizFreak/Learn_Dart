@@ -108,3 +108,21 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
       }
     }
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Minesweeper'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                resetGame();
+                _animationController.reset();
+                _animationController.repeat(reverse: true);
+              });
+            },
+          ),
+        ],
+      ),
