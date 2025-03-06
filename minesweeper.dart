@@ -18,3 +18,29 @@ class MinesweeperApp extends StatelessWidget {
     );
   }
 }
+class MinesweeperGame extends StatefulWidget {
+  @override
+  _MinesweeperGameState createState() => _MinesweeperGameState();
+}
+
+class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderStateMixin {
+  static const int gridSize = 8;
+  static const int totalMines = 10;
+  late List<List<Cell>> grid;
+  late List<List<bool>> revealed;
+  bool gameOver = false;
+  late AnimationController _animationController;
+  late Animation<double> _gridAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    resetGame();
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    )..repeat(reverse: true);
+    _gridAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+  }
