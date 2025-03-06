@@ -127,3 +127,24 @@ class _SnakeGameState extends State<SnakeGame> {
                   setState(() {
                     direction = 'UP';
                   });
+                  } else if (details.primaryDelta! > 0 && direction != 'UP') {
+                  setState(() {
+                    direction = 'DOWN';
+                  });
+                }
+              },
+              onHorizontalDragUpdate: (details) {
+                if (details.primaryDelta! < 0 && direction != 'RIGHT') {
+                  setState(() {
+                    direction = 'LEFT';
+                  });
+                } else if (details.primaryDelta! > 0 && direction != 'LEFT') {
+                  setState(() {
+                    direction = 'RIGHT';
+                  });
+                }
+              },
+              child: Container(
+                width: gridSize * tileSize,
+                height: gridSize * tileSize,
+                decoration: BoxDecoration(
