@@ -82,3 +82,29 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
       gameOver = false;
     });
   }
+  void revealCell(int x, int y) {
+    if (gameOver || revealed[x][y]) return;
+
+    setState(() {
+      revealed[x][y] = true;
+    });
+
+    if (grid[x][y].isMine) {
+      setState(() {
+        gameOver = true;
+      });
+    } else {
+      if (grid[x][y].adjacentMines == 0) {
+        // Reveal surrounding cells if no adjacent mines
+        for (int dx = -1; dx <= 1; dx++) {
+          for (int dy = -1; dy <= 1; dy++) {
+            int nx = x + dx;
+            int ny = y + dy;
+            if (nx >= 0 && ny >= 0 && nx < gridSize && ny < gridSize && !revealed[nx][ny]) {
+              revealCell(nx, ny);
+            }
+          }
+        }
+      }
+    }
+  }
