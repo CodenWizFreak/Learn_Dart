@@ -171,4 +171,19 @@ class _MinesweeperGameState extends State<MinesweeperGame> with TickerProviderSt
                                         ? Text(grid[x][y].adjacentMines.toString())
                                         : Container())
                                 : Container(),
+                            ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
