@@ -169,3 +169,25 @@ class _SnakeGameState extends State<SnakeGame> {
                       top: food.dy * tileSize,
                       child: Container(
                         width: tileSize,
+                        height: tileSize,
+                        color: Colors.red,
+                      ),
+                    ),
+                    if (gameOver)
+                      Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Game Over!',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: startGame,
+                              child: Text('Play Again'),
+                            ),
+                          ],
