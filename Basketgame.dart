@@ -76,5 +76,25 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
       }
     });
   }
+// Periodically create new falling objects
+  void createObjectsPeriodically() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (!isGameOver) {
+        createFallingObject();
+      }
+    });
+  }
 
+  @override
+  void initState() {
+    super.initState();
+    startGame();
+    createObjectsPeriodically();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    gameTimer?.cancel();
+  }
   
