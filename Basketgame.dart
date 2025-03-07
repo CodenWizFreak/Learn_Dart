@@ -98,3 +98,22 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
     gameTimer?.cancel();
   }
   
+@override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onHorizontalDragUpdate: isGameOver ? null : moveBasket,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: Container(color: Colors.blue),
+          ),
+          // Basket (the player's catching object)
+          Positioned(
+            left: basketPosition,
+            bottom: 0,
+            child: Container(
+              width: basketWidth,
+              height: basketHeight,
+              color: Colors.green,
+            ),
+          ),
