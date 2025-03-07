@@ -172,4 +172,11 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
     );
   }
 }
+class PositionedObject {
+  double positionX;
+  double positionY;
+
+  PositionedObject(this.positionX, this.positionY);
+}
+
 
