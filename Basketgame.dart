@@ -56,3 +56,23 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
       }
     });
   }
+// Create a new falling object at a random position at the top
+  void createFallingObject() {
+    double randomX = Random().nextDouble() * (MediaQuery.of(context).size.width - objectWidth);
+    setState(() {
+      fallingObjects.add(PositionedObject(randomX, -objectHeight)); // Add object with initial Y off-screen
+    });
+  }
+
+  // Handle horizontal movement of the basket using touch
+  void moveBasket(DragUpdateDetails details) {
+    setState(() {
+      basketPosition += details.primaryDelta!;
+      // Keep the basket within the screen boundaries
+      if (basketPosition < 0) basketPosition = 0;
+      if (basketPosition > MediaQuery.of(context).size.width - basketWidth)
+      {
+        basketPosition = MediaQuery.of(context).size.width - basketWidth;
+      }
+    });
+  }
