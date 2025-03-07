@@ -143,3 +143,17 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
                     'Score: $score',
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        isGameOver = false;
+                        score = 0;
+                        fallingObjects.clear();
+                      });
+                      startGame();
+                    },
+                    child: Text('Restart'),
+                  ),
+                ],
+              ),
+            ),
