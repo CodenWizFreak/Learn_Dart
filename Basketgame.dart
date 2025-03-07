@@ -157,3 +157,19 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
                 ],
               ),
             ),
+          // Score Display
+          if (!isGameOver)
+            Positioned(
+              top: 40,
+              left: 20,
+              child: Text(
+                'Score: $score',
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
