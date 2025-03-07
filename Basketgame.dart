@@ -117,3 +117,15 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
               color: Colors.green,
             ),
           ),
+          // Falling objects
+          ...fallingObjects.map((obj) {
+            return Positioned(
+              left: obj.positionX,
+              top: obj.positionY,
+              child: Container(
+                width: objectWidth,
+                height: objectHeight,
+                color: Colors.red,
+              ),
+            );
+          }).toList(),
