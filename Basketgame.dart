@@ -76,3 +76,5 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
       }
     });
   }
+
+  
