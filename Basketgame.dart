@@ -129,3 +129,17 @@ class _FallingObjectGameState extends State<FallingObjectGame> {
               ),
             );
           }).toList(),
+          // Game Over screen
+          if (isGameOver)
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Game Over',
+                    style: TextStyle(fontSize: 40, color: Colors.white),
+                  ),
+                  Text(
+                    'Score: $score',
+                    style: TextStyle(fontSize: 30, color: Colors.white),
+                  ),
