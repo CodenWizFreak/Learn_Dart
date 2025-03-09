@@ -36,3 +36,23 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
       });
     }
   }
+  // Function for computer move
+  void computerMove() {
+    if (gameOver) return;
+
+    // Generate a random available spot for the computer to play 'O'
+    List<int> availableMoves = [];
+    for (int i = 0; i < board.length; i++) {
+      if (board[i] == '') availableMoves.add(i);
+    }
+
+    if (availableMoves.isNotEmpty) {
+      int move = availableMoves[Random().nextInt(availableMoves.length)];
+
+      setState(() {
+        board[move] = 'O'; // Computer makes a move
+        checkWinner();
+      });
+    }
+  }
+
