@@ -13,3 +13,26 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+class TicTacToeGame extends StatefulWidget {
+  @override
+  _TicTacToeGameState createState() => _TicTacToeGameState();
+}
+
+class _TicTacToeGameState extends State<TicTacToeGame> {
+  List<String> board = List.generate(9, (index) => ''); // Tic Tac Toe grid
+  bool isPlayerXTurn = true; // Player starts as 'X'
+  bool gameOver = false;
+  String winner = '';
+
+  // Function to handle player move
+  void playerMove(int index) {
+    if (board[index] == '' && !gameOver) {
+      setState(() {
+        board[index] = 'X'; // Player makes a move
+        checkWinner();
+        if (!gameOver) {
+          computerMove(); // If game isn't over, let the computer play
+        }
+      });
+    }
+  }
