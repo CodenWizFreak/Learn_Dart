@@ -159,4 +159,13 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black), // Set background color
                 padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30, vertical: 15)), // Set padding
+                 ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
