@@ -121,4 +121,25 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
                 crossAxisCount: 3,
                 childAspectRatio: 1.0,
               ),
+              itemCount: 9,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () => playerMove(index),
+                  child: Container(
+                    margin: EdgeInsets.all(4.0),
+                    color: Colors.blueGrey,
+                    child: Center(
+                      child: Text(
+                        board[index],
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: board[index] == 'X' ? Colors.blue : Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
 
