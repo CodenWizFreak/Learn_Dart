@@ -81,4 +81,22 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
         return;
       }
     }
+    // Check for draw
+    if (!board.contains('') && !gameOver) {
+      setState(() {
+        gameOver = true;
+        winner = 'Draw';
+      });
+    }
+  }
+
+  // Restart the game
+  void restartGame() {
+    setState(() {
+      board = List.generate(9, (index) => ''); // Reset board
+      isPlayerXTurn = true;
+      gameOver = false;
+      winner = '';
+    });
+  }
 
