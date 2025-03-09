@@ -99,4 +99,26 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
       winner = '';
     });
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tic Tac Toe - Player vs Computer'),
+      ),
+      body: SingleChildScrollView( // Wrap the Column with SingleChildScrollView
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Player X vs Computer O',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            // Displaying the grid
+            GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1.0,
+              ),
 
