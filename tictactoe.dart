@@ -142,4 +142,21 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
                 );
               },
             ),
+            SizedBox(height: 20),
+            // Display result (Winner or Draw)
+            if (gameOver)
+              Text(
+                winner == 'Draw'
+                    ? 'It\'s a Draw!'
+                    : '$winner wins!',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+            // Restart Button
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: restartGame,
+              child: Text('Restart Game'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black), // Set background color
+                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30, vertical: 15)), // Set padding
 
