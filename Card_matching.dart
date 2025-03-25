@@ -75,3 +75,15 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
 
     // Animate the card flip
     flipControllers[index]?.forward(from: 0);
+
+    setState(() {
+      revealedCards[index] = cards[index];
+      flippedIndexes.add(index);
+      flippedCount++;
+    });
+
+    // Increment score after every two cards turned
+    if (flippedCount == 2) {
+      setState(() {
+        score++;  // Increment score
+      });
