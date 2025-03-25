@@ -120,3 +120,15 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
           );
         }
       });
+} else {
+      // Flip the cards back after a delay
+      Future.delayed(Duration(seconds: 1), () {
+        flipControllers[firstIndex]?.reverse();  // Flip back the first card
+        flipControllers[secondIndex]?.reverse(); // Flip back the second card
+
+        setState(() {
+          revealedCards[firstIndex] = '';
+          revealedCards[secondIndex] = '';
+        });
+      });
+    }
