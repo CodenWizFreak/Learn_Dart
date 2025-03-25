@@ -138,3 +138,21 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
       flippedIndexes.clear();
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Memory Card Game")),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              // Display the score
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Score: $score',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
