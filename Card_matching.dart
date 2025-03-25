@@ -66,3 +66,12 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
     if (revealedCards[index] != '' || flippedIndexes.length == 2) {
       return; // Card already flipped or two cards are already revealed
     }
+
+    // Create an animation controller for this card flip
+    flipControllers[index] = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this, // Use this as the TickerProvider
+    );
+
+    // Animate the card flip
+    flipControllers[index]?.forward(from: 0);
