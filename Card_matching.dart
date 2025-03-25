@@ -156,3 +156,20 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
+              // The grid of cards
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4, // 4 columns of cards
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0,
+                  ),
+                  itemCount: cards.length,
+                  itemBuilder: (context, index) {
+                    // Create the animation for each card if it hasn't been created yet
+                    if (flipControllers[index] == null) {
+                      flipControllers[index] = AnimationController(
+                        duration: Duration(milliseconds: 500),
+                        vsync: this,
+                      );
+                    }
