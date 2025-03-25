@@ -87,3 +87,12 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
       setState(() {
         score++;  // Increment score
       });
+
+      Future.delayed(Duration(milliseconds: 500), checkForMatch);
+    }
+  }
+
+  // Check if two flipped cards match
+  void checkForMatch() {
+    int firstIndex = flippedIndexes[0];
+    int secondIndex = flippedIndexes[1];
