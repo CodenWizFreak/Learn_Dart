@@ -207,3 +207,21 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
                                     child: Text(
                                       revealedCards[index], // Display emoji here
                                       style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.white),
+                                      ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
