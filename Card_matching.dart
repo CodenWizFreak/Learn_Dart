@@ -96,3 +96,27 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
   void checkForMatch() {
     int firstIndex = flippedIndexes[0];
     int secondIndex = flippedIndexes[1];
+
+    if (revealedCards[firstIndex] == revealedCards[secondIndex]) {
+      setState(() {
+        matchCount++;
+        if (matchCount == totalMatches) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Congratulations!"),
+                content: Text("You matched all the pairs! Your score is $score"),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      });
