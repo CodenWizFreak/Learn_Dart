@@ -45,3 +45,15 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
     });
     super.dispose();
   }
+
+  // Generate random pairs of emojis
+  List<String> _generateRandomCardList() {
+    List<String> selectedEmojis = [];
+    List<String> randomEmojis = List.from(allEmojis);
+
+    // Select 6 unique emojis randomly and create pairs
+    randomEmojis.shuffle(Random());
+    for (int i = 0; i < 6; i++) {
+      selectedEmojis.add(randomEmojis[i]);
+      selectedEmojis.add(randomEmojis[i]);
+    }
