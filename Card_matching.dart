@@ -200,3 +200,10 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
                                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
                                   ),
                                 ),
+                                // Front of the card (revealed side)
+                                if (revealedCards[index] != '')
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      revealedCards[index], // Display emoji here
+                                      style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.white),
