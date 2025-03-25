@@ -28,3 +28,11 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
 
   // To control the flip animation for each card
   Map<int, AnimationController> flipControllers = {};
+
+   @override
+  void initState() {
+    super.initState();
+    // Create random pairs from the available emojis
+    cards = _generateRandomCardList();
+    cards.shuffle(Random());  // Shuffle the card list to randomize their positions
+  }
