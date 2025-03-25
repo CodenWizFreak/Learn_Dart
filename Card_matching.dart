@@ -132,3 +132,9 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
         });
       });
     }
+// Reset flipped count and flippedIndexes
+    setState(() {
+      flippedCount = 0;
+      flippedIndexes.clear();
+    });
+  }
