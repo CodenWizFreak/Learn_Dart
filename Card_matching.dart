@@ -57,3 +57,12 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
       selectedEmojis.add(randomEmojis[i]);
       selectedEmojis.add(randomEmojis[i]);
     }
+
+    return selectedEmojis;
+  }
+
+  // Card flip logic
+  void onCardClick(int index) {
+    if (revealedCards[index] != '' || flippedIndexes.length == 2) {
+      return; // Card already flipped or two cards are already revealed
+    }
