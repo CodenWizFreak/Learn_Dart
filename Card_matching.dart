@@ -36,3 +36,12 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
     cards = _generateRandomCardList();
     cards.shuffle(Random());  // Shuffle the card list to randomize their positions
   }
+
+  @override
+  void dispose() {
+    // Dispose all animation controllers
+    flipControllers.forEach((key, controller) {
+      controller.dispose();
+    });
+    super.dispose();
+  }
