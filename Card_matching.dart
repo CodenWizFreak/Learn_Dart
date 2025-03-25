@@ -173,3 +173,16 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
                         vsync: this,
                       );
                     }
+
+                    return GestureDetector(
+                      onTap: () => onCardClick(index),
+                      child: AnimatedBuilder(
+                        animation: flipControllers[index]!,
+                        builder: (context, child) {
+                          final angle = flipControllers[index]!.value * pi;
+                          return Transform(
+                            alignment: Alignment.center,
+                            transform: Matrix4.rotationY(angle),
+                            child: child,
+                          );
+                        },
