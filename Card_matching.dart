@@ -186,3 +186,17 @@ class _MemoryCardGameState extends State<MemoryCardGame> with TickerProviderStat
                             child: child,
                           );
                         },
+                        child: Card(
+                          key: ValueKey<int>(index),
+                          color: Colors.blueAccent,
+                          child: Center(
+                            child: Stack(
+                              children: [
+                                // Back of the card (hidden side)
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    ' ',
+                                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                                  ),
+                                ),
