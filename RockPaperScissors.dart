@@ -76,3 +76,15 @@ class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
                   onPressed: () => playGame('✊'),
                   child: Text('✊', style: TextStyle(fontSize: 40)),
                 ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () => playGame('✋'),
+                  child: Text('✋', style: TextStyle(fontSize: 40)),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () => playGame('✌️'),
+                  child: Text('✌️', style: TextStyle(fontSize: 40)),
+                ),
+              ],
+            ),
