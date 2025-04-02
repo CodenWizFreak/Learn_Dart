@@ -187,3 +187,26 @@ class HangmanDrawing extends StatelessWidget {
       case 3:
         hangman = '  \n  \n  \n  |  \n /|\\ \n /';
         break;
+        case 4:
+        hangman = '  \n  | \n  | \n /|\\ \n /';
+        break;
+      case 5:
+        hangman = '  |  \n  |  \n  |  \n /|\\ \n /';
+        break;
+      case 6:
+        hangman = '  |  \n  |  \n  |  \n /|\\ \n / \\';
+        break;
+      default:
+        hangman = '  \n  \n  \n  \n  \n  \n';
+    }
+
+    return Column(
+      children: [
+        Text(
+          hangman,
+          style: TextStyle(fontFamily: 'Courier', fontSize: 24, color: Colors.black),
+        ),
+      ],
+    );
+  }
+}
