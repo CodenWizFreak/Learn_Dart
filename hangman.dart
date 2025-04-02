@@ -56,3 +56,30 @@ class _HangmanGameState extends State<HangmanGame> {
     if (_gameOver || _guessedLetters.contains(letter)) {
       return;
     }
+
+    setState(() {
+      _guessedLetters.add(letter);
+
+      if (_chosenWord.contains(letter)) {
+        // Update the displayed word with the correct letter
+        for (int i = 0; i < _chosenWord.length; i++) {
+          if (_chosenWord[i] == letter) {
+            _displayedWord[i] = letter;
+          }
+        }
+      } else {
+        _incorrectGuesses++;
+      }
+
+      // Check if the game is over
+      if (_incorrectGuesses >= _maxIncorrectGuesses) {
+        _gameOver = true;
+      }
+
+      // Check if the player won
+      if (!_displayedWord.contains("_")) {
+        _won = true;
+        _gameOver = true;
+      }
+    });
+  }
