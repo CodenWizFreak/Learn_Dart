@@ -36,3 +36,20 @@ class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
       result = getResult(userChoice, computerChoice);
     });
   }
+
+  String getComputerChoice() {
+    Random random = Random();
+    return choices[random.nextInt(3)];
+  }
+
+  String getResult(String userChoice, String computerChoice) {
+    if (userChoice == computerChoice) {
+      return 'It\'s a tie! 🤝';
+    } else if ((userChoice == '✊' && computerChoice == '✌️') ||
+               (userChoice == '✋' && computerChoice == '✊') ||
+               (userChoice == '✌️' && computerChoice == '✋')) {
+      return 'You win! 🎉';
+    } else {
+      return 'You lose! 😞';
+    }
+  }
