@@ -17,3 +17,22 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class RockPaperScissorsGame extends StatefulWidget {
+  @override
+  _RockPaperScissorsGameState createState() => _RockPaperScissorsGameState();
+}
+
+class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
+  final List<String> choices = ['✊', '✋', '✌️'];
+  String userChoice = '';
+  String computerChoice = '';
+  String result = '';
+
+  void playGame(String userMove) {
+    setState(() {
+      userChoice = userMove;
+      computerChoice = getComputerChoice();
+      result = getResult(userChoice, computerChoice);
+    });
+  }
