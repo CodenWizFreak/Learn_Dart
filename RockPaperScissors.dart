@@ -101,3 +101,10 @@ class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
             Text(
               result,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
