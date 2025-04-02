@@ -164,3 +164,26 @@ class _HangmanGameState extends State<HangmanGame> {
     );
   }
 }
+// Hangman drawing widget with text
+class HangmanDrawing extends StatelessWidget {
+  final int incorrectGuesses;
+
+  HangmanDrawing({required this.incorrectGuesses});
+
+  @override
+  Widget build(BuildContext context) {
+    String hangman = '';
+    
+    switch (incorrectGuesses) {
+      case 0:
+        hangman = '  \n  \n  \n  \n  \n  \n';
+        break;
+      case 1:
+        hangman = '  \n  \n  \n  \n  \n /';
+        break;
+      case 2:
+        hangman = '  \n  \n  \n  \n /|\\ \n /';
+        break;
+      case 3:
+        hangman = '  \n  \n  \n  |  \n /|\\ \n /';
+        break;
