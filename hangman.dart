@@ -129,3 +129,20 @@ class _HangmanGameState extends State<HangmanGame> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: _won ? Colors.green : Colors.red),
               ),
             SizedBox(height: 20),
+            // Display the alphabet to guess letters
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 8.0,
+              children: List.generate(26, (index) {
+                String letter = String.fromCharCode(index + 97);  // 'a' to 'z'
+                return ElevatedButton(
+                  onPressed: _gameOver || _guessedLetters.contains(letter) ? null : () => _guessLetter(letter),
+                  child: Text(letter.toUpperCase(), style: TextStyle(fontSize: 20)),
+                  style: ElevatedButton.styleFrom(
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(15),
+                    backgroundColor: Colors.teal, // Button color
+                  ),
+                );
+              }),
+            ),
