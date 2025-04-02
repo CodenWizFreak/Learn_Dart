@@ -83,3 +83,33 @@ class _HangmanGameState extends State<HangmanGame> {
       }
     });
   }
+  // Build the UI for the game
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Hangman Game', style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(  // Make the body scrollable
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Display Hangman drawing as text
+            HangmanDrawing(incorrectGuesses: _incorrectGuesses),
+
+            SizedBox(height: 30),
+
+            // Display the word with underscores for unguessed letters
+            Text(
+              _displayedWord.join(" "),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+            SizedBox(height: 20),
+            
+            // Display the guessed letters
+            Text(
+              "Guessed Letters: ${_guessedLetters.join(", ")}",
+              style: TextStyle(fontSize: 18),
+            ),
