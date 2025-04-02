@@ -17,3 +17,24 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class HangmanGame extends StatefulWidget {
+  @override
+  _HangmanGameState createState() => _HangmanGameState();
+}
+
+class _HangmanGameState extends State<HangmanGame> {
+  final List<String> _words = ["flutter", "hangman", "dart", "programming", "developer"];
+  String _chosenWord = "";
+  List<String> _displayedWord = [];
+  Set<String> _guessedLetters = {};
+  int _incorrectGuesses = 0;
+  final int _maxIncorrectGuesses = 6;
+  bool _gameOver = false;
+  bool _won = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _startNewGame();
+  }
