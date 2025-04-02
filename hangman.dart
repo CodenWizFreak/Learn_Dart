@@ -38,3 +38,21 @@ class _HangmanGameState extends State<HangmanGame> {
     super.initState();
     _startNewGame();
   }
+
+  // Start a new game
+  void _startNewGame() {
+    setState(() {
+      _chosenWord = _words[Random().nextInt(_words.length)];
+      _displayedWord = List.generate(_chosenWord.length, (index) => "_");
+      _guessedLetters.clear();
+      _incorrectGuesses = 0;
+      _gameOver = false;
+      _won = false;
+    });
+  }
+
+  // Handle a letter guess
+  void _guessLetter(String letter) {
+    if (_gameOver || _guessedLetters.contains(letter)) {
+      return;
+    }
