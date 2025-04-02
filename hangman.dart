@@ -146,3 +146,21 @@ class _HangmanGameState extends State<HangmanGame> {
                 );
               }),
             ),
+            SizedBox(height: 20),
+
+            // Start a new game button
+            ElevatedButton(
+              onPressed: _startNewGame,
+              child: Text("Start New Game", style: TextStyle(fontSize: 20)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orangeAccent,
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
