@@ -53,3 +53,26 @@ class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
       return 'You lose! 😞';
     }
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Rock Paper Scissors'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Choose your move:',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () => playGame('✊'),
+                  child: Text('✊', style: TextStyle(fontSize: 40)),
+                ),
