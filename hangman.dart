@@ -113,3 +113,19 @@ class _HangmanGameState extends State<HangmanGame> {
               "Guessed Letters: ${_guessedLetters.join(", ")}",
               style: TextStyle(fontSize: 18),
             ),
+            SizedBox(height: 20),
+
+            // Display the number of incorrect guesses
+            Text(
+              "Incorrect Guesses: $_incorrectGuesses / $_maxIncorrectGuesses",
+              style: TextStyle(fontSize: 18),
+            ),
+            SizedBox(height: 20),
+
+            // Display game over/win message
+            if (_gameOver)
+              Text(
+                _won ? "You won!" : "Game Over! The word was: $_chosenWord",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: _won ? Colors.green : Colors.red),
+              ),
+            SizedBox(height: 20),
