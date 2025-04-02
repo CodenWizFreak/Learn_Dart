@@ -88,3 +88,16 @@ class _RockPaperScissorsGameState extends State<RockPaperScissorsGame> {
                 ),
               ],
             ),
+             SizedBox(height: 40),
+            Text(
+              'You chose: $userChoice',
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              'Computer chose: $computerChoice',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20),
+            Text(
+              result,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
