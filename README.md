@@ -6,3 +6,4 @@ Retro games in a modern form
 4) Tic Tac Toe
 5) Rock Paper Scissors
 6) Card Match
+7) Hangman
